@@ -21,17 +21,27 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen text-gray-800">
-<!-- Password Protection Script -->
+<!-- Secure Password Protection -->
 <script>
-    // حدد هنا كلمة المرور اللي انت عايزه ارفعها لأصحابك
-    const correctPassword = "123"; 
-    
-    let userPassword = prompt("الرجاء إدخال كلمة المرور لدخول الموقع:");
-    
-    if (userPassword !== correctPassword) {
-        document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; font-family:sans-serif; color:red;'>عذراً، كلمة المرور غير صحيحة. لا يمكنك الوصول للموقع! ❌</h2>";
-        throw new Error("Unauthorized access");
-    }
+    (function() {
+        // حط هنا كلمة المرور اللي انت عايزها
+        const correctPassword = "123"; 
+        
+        let userPassword = prompt("الرجاء إدخال كلمة المرور لدخول الموقع:");
+        
+        if (userPassword !== correctPassword) {
+            // مسح محتوى الصفحة بالكامل وعرض رسالة خطأ فقط لمنع أي محاولة تجاوز
+            document.documentElement.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f3f4f6; font-family: 'Poppins', sans-serif;">
+                    <div style="text-align: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <h2 style="color: #dc2626; margin-bottom: 10px;">خطأ في كلمة المرور ❌</h2>
+                        <p style="color: #4b5563;">عذراً، كلمة المرور غير صحيحة. تم حظر الوصول للموقع.</p>
+                    </div>
+                </div>
+            `;
+            throw new Error("Access Denied");
+        }
+    })();
 </script>
     <!-- Container -->
     <div class="container mx-auto px-4 py-8 max-w-4xl">
