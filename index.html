@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatric Nursing Interactive Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen text-gray-800">
+
+    <!-- Container -->
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-indigo-700 mb-2">Pediatric Nursing Interactive Exam</h1>
+            <p class="text-gray-600">Test your knowledge across comprehensive pediatric nursing lectures</p>
+        </header>
+
+        <!-- Home View: Lecture Selection -->
+        <div id="home-view" class="space-y-6">
+            <h2 class="text-xl font-semibold text-gray-700 text-center mb-6">Select a Lecture to Start Quiz</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Lecture 1 -->
+                <div onclick="startQuiz(0)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-blue-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-blue-500 bg-blue-50 px-2 py-1 rounded">Lecture 1</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Accident Prevention & Safety</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-blue-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 2 -->
+                <div onclick="startQuiz(1)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-indigo-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-indigo-500 bg-indigo-50 px-2 py-1 rounded">Lecture 2</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Adolescent Health & Development</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-indigo-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 3 -->
+                <div onclick="startQuiz(2)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-green-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-green-500 bg-green-50 px-2 py-1 rounded">Lecture 3</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Gastroenteritis & Dehydration</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-green-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 4 -->
+                <div onclick="startQuiz(3)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-purple-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-purple-500 bg-purple-50 px-2 py-1 rounded">Lecture 4</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Infant Growth & Development</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-purple-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 5 -->
+                <div onclick="startQuiz(4)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-pink-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-pink-500 bg-pink-50 px-2 py-1 rounded">Lecture 5</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Newborn Growth & Assessment</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-pink-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 6 -->
+                <div onclick="startQuiz(5)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-yellow-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-1 rounded">Lecture 6</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">General Growth & Development Principles</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-yellow-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 7 -->
+                <div onclick="startQuiz(6)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-teal-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-teal-500 bg-teal-50 px-2 py-1 rounded">Lecture 7</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Toddler Growth & Development</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-teal-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 8 -->
+                <div onclick="startQuiz(7)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-red-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-red-500 bg-red-50 px-2 py-1 rounded">Lecture 8</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Immunization & Vaccines</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-red-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 9 (New) -->
+                <div onclick="startQuiz(8)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-amber-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-amber-500 bg-amber-50 px-2 py-1 rounded">Lecture 9</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Preschool Child Growth & Development</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-amber-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 10 (New) -->
+                <div onclick="startQuiz(9)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-cyan-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-cyan-500 bg-cyan-50 px-2 py-1 rounded">Lecture 10</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">School-Age Child Growth & Development</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-cyan-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 11 (New) -->
+                <div onclick="startQuiz(10)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-orange-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-orange-500 bg-orange-50 px-2 py-1 rounded">Lecture 11</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Nutritional Disorders (Marasmus & Kwashiorkor)</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-orange-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+                <!-- Lecture 12 (New) -->
+                <div onclick="startQuiz(11)" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer border-l-4 border-violet-500 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-violet-500 bg-violet-50 px-2 py-1 rounded">Lecture 12</span>
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Overview of Pediatric Nursing & Play</h3>
+                        <p class="text-gray-500 text-sm mt-1">20 Questions (10 MCQs, 10 T/F)</p>
+                    </div>
+                    <button class="mt-4 text-violet-600 font-semibold text-sm flex items-center hover:underline">Start Quiz &rarr;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz View -->
+        <div id="quiz-view" class="hidden bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h2 id="quiz-title" class="text-xl font-bold text-indigo-700">Lecture Title</h2>
+                <button onclick="goHome()" class="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-4 py-2 rounded-lg transition">Exit to Home</button>
+            </div>
+            
+            <form id="quiz-form" class="space-y-8">
+                <!-- Dynamic Questions will be injected here -->
+            </form>
+
+            <div class="mt-8 text-center">
+                <button type="button" onclick="submitQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3 rounded-xl shadow-md transition text-lg">Submit Answers</button>
+            </div>
+        </div>
+
+        <!-- Result View -->
+        <div id="result-view" class="hidden bg-white p-8 rounded-2xl shadow-lg text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Quiz Results</h2>
+            <div id="score-display" class="text-5xl font-extrabold text-indigo-600 mb-4">0 / 20</div>
+            <p id="result-message" class="text-gray-600 text-lg mb-8">Great job!</p>
+            <button onclick="goHome()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl shadow transition">Return to Home Page</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Database of Questions (20 per lecture: 10 MCQs + 10 T/F)
+        const lecturesData = [
+            // Lecture 1: Accident Prevention & Safety
+            {
+                title: "Lecture 1: Accident Prevention & Safety in Children",
+                questions: [
+                    { q: "What is the leading cause of accidental death in infants under 1 year of age?", options: ["Burns", "Aspiration/Suffocation", "Motor vehicle accidents", "Poisoning"], answer: 1 },
+                    { q: "At what age should a rear-facing car seat transition to forward-facing?", options: ["1 year old", "2 years old or until reaching limits", "6 months old", "4 years old"], answer: 1 },
+                    { q: "Which household product is most commonly associated with accidental poisoning in toddlers?", options: ["Cosmetics and personal care products", "Dishwasher detergents", "Plant fertilizers", "Glass cleaners"], answer: 0 },
+                    { q: "What is the primary preventive measure to avoid sudden infant death syndrome (SIDS)?", options: ["Placing the infant to sleep on their stomach", "Placing the infant to sleep on their back", "Using heavy blankets", "Keeping room warm"], answer: 1 },
+                    { q: "What is the recommended maximum temperature for home water heaters to prevent scald burns?", options: ["140°F (60°C)", "120°F (49°C)", "100°F (38°C)", "160°F (71°C)"], answer: 1 },
+                    { q: "Which toy feature presents the greatest choking hazard for a toddler?", options: ["Bright colors", "Small parts that fit in a choke tube", "Soft fabric", "Battery sounds"], answer: 1 },
+                    { q: "What is the most effective safety device to prevent accidental falls from windows?", options: ["Insect screens", "Window guards and stops", "Curtains", "Locking doors"], answer: 1 },
+                    { q: "At what age are children generally considered developmentally ready to cross the street alone?", options: ["5 years old", "7 years old", "10 years old", "3 years old"], answer: 2 },
+                    { q: "Which safety gear is mandatory for preventing severe traumatic brain injury during bicycling?", options: ["Knee pads", "Elbow pads", "Properly fitted helmet", "Reflective vest"], answer: 2 },
+                    { q: "What immediate action should a parent take if a child ingests a cleaning chemical?", options: ["Induce vomiting", "Call Poison Control or emergency services", "Give milk", "Wait and see"], answer: 1 },
+                    { q: "Toddlers have a high risk of foreign body aspiration due to exploring objects with their mouths.", options: ["True", "False"], answer: 0 },
+                    { q: "Walkers with wheels significantly reduce the risk of infant injuries.", options: ["True", "False"], answer: 1 },
+                    { q: "Sunscreen should be routinely applied to infants under 6 months of age.", options: ["True", "False"], answer: 1 },
+                    { q: "Poisonous plants should be kept out of reach and parents should know their names.", options: ["True", "False"], answer: 0 },
+                    { q: "Drowning can occur in as little as one inch of water.", options: ["True", "False"], answer: 0 },
+                    { q: "Trampolines at home are strongly recommended for preschoolers.", options: ["True", "False"], answer: 1 },
+                    { q: "Medications should always be referred to as 'candy' to encourage compliance.", options: ["True", "False"], answer: 1 },
+                    { q: "Carbon monoxide detectors should be installed on every level of the home.", options: ["True", "False"], answer: 0 },
+                    { q: "Hot liquids should be consumed while holding an infant or toddler.", options: ["True", "False"], answer: 1 },
+                    { q: "Adolescent drivers have higher accident rates due to inexperience and risk-taking.", options: ["True", "False"], answer: 0 }
+                ]
+            },
+            // Lecture 2: Adolescent Health & Development
+            {
+                title: "Lecture 2: Adolescent Health & Development",
+                questions: [
+                    { q: "According to Piaget, which cognitive stage characterizes adolescence?", options: ["Preoperational stage", "Concrete operational stage", "Formal operational stage", "Sensorimotor stage"], answer: 2 },
+                    { q: "What is typically the first sign of female sexual maturation (puberty)?", options: ["Menarche", "Thelarche (breast bud development)", "Growth spurt", "Appearance of pubic hair"], answer: 1 },
+                    { q: "Which psychosocial crisis must adolescents resolve according to Erikson?", options: ["Trust vs. Mistrust", "Industry vs. Inferiority", "Identity vs. Role Confusion", "Intimacy vs. Isolation"], answer: 2 },
+                    { q: "Which eating disorder involves severe caloric restriction and fear of weight gain?", options: ["Binge eating disorder", "Bulimia nervosa", "Anorexia nervosa", "Pica"], answer: 2 },
+                    { q: "What is the leading cause of mortality among adolescents?", options: ["Cancer", "Unintentional injuries / MVA", "Congenital anomalies", "Infectious diseases"], answer: 1 },
+                    { q: "Which screening tool is commonly used to assess adolescent risk behaviors?", options: ["Apgar scale", "HEADSS assessment", "Glasgow Coma Scale", "Denver II test"], answer: 1 },
+                    { q: "During male puberty, which physical change typically occurs first?", options: ["Deepening voice", "Facial hair", "Enlargement of testes and scrotal changes", "Nocturnal emissions"], answer: 2 },
+                    { q: "What is the 'imaginary audience' phenomenon in adolescent egocentrism?", options: ["Believing one is invincible", "Believing everyone is constantly watching and evaluating them", "Feeling no one understands them", "Concrete thinking"], answer: 1 },
+                    { q: "Which STI vaccine is routinely recommended for adolescents around age 11-12?", options: ["Hepatitis A vaccine", "HPV vaccine", "Influenza vaccine", "BCG vaccine"], answer: 1 },
+                    { q: "What is a key communication strategy when interviewing an adolescent?", options: ["Conduct entire interview with parents present", "Provide confidential time alone while discussing privacy limits", "Use heavy medical jargon", "Avoid sensitive topics"], answer: 1 },
+                    { q: "Adolescent growth spurt occurs earlier in females than in males.", options: ["True", "False"], answer: 0 },
+                    { q: "Peer groups become less important during adolescence.", options: ["True", "False"], answer: 1 },
+                    { q: "Bulimia nervosa features binge eating followed by compensatory purging behaviors.", options: ["True", "False"], answer: 0 },
+                    { q: "The 'personal fable' is the belief that one is unique and invincible.", options: ["True", "False"], answer: 0 },
+                    { q: "Acne vulgaris is common during adolescence due to hormonal changes.", options: ["True", "False"], answer: 0 },
+                    { q: "Depression and anxiety rates decrease significantly during adolescence.", options: ["True", "False"], answer: 1 },
+                    { q: "Scoliosis screening is frequently performed during adolescent visits.", options: ["True", "False"], answer: 0 },
+                    { q: "Nutritional requirements decrease during adolescence compared to middle childhood.", options: ["True", "False"], answer: 1 },
+                    { q: "Adolescents require only 5 to 6 hours of sleep per night.", options: ["True", "False"], answer: 1 },
+                    { q: "Substance experimentation carries high dependency risk due to ongoing brain maturation.", options: ["True", "False"], answer: 0 }
+                ]
+            },
+            // Lecture 3: Gastroenteritis & Dehydration
+            {
+                title: "Lecture 3: Pediatric Gastroenteritis & Dehydration",
+                questions: [
+                    { q: "What is the most common viral cause of acute gastroenteritis in infants worldwide?", options: ["Norovirus", "Rotavirus", "Adenovirus", "Enterovirus"], answer: 1 },
+                    { q: "Which clinical sign is the most reliable indicator of acute fluid loss in infants?", options: ["Blood pressure drop", "Percentage of body weight loss", "Heart rate increase", "Presence of tears"], answer: 1 },
+                    { q: "What is the first-line treatment for mild to moderate dehydration?", options: ["IV normal saline bolus", "Oral Rehydration Solution (ORS) in small frequent amounts", "OTC anti-diarrheal meds", "Strict NPO for 24 hours"], answer: 1 },
+                    { q: "Which finding characterizes severe dehydration in an infant?", options: ["Slightly dry mucous membranes", "Sunken fontanel, absent tears, tachycardia, delayed capillary refill", "Bounding pulses", "Increased urine output"], answer: 1 },
+                    { q: "Why are anti-diarrheal medications generally not recommended for young children?", options: ["They cause hypertension", "They delay pathogen elimination and can cause toxic megacolon", "They cure infections too quickly", "They taste bitter"], answer: 1 },
+                    { q: "What dietary recommendation is advised for a child recovering from gastroenteritis?", options: ["Strict clear liquids only for a week", "Early resumption of age-appropriate normal diet", "High-sugar fruit juices", "Fasting until diarrhea stops"], answer: 1 },
+                    { q: "Which electrolyte imbalance is most commonly associated with severe watery diarrhea?", options: ["Hyperkalemia", "Hyponatremia or Isotonic dehydration", "Hypercalcemia", "Metabolic alkalosis"], answer: 1 },
+                    { q: "What acid-base imbalance typically occurs in severe dehydration with stool bicarbonate loss?", options: ["Respiratory alkalosis", "Metabolic acidosis", "Metabolic alkalosis", "Respiratory acidosis"], answer: 1 },
+                    { q: "Which preventive measure has drastically reduced severe rotavirus hospitalizations?", options: ["Handwashing alone", "Rotavirus vaccination", "Prophylactic antibiotics", "Boiling all water"], answer: 1 },
+                    { q: "What is a key nursing assessment when evaluating skin turgor in an infant?", options: ["Pinching skin on the abdomen and observing recoil", "Measuring skin temperature", "Checking hair texture", "Assessing nail bed color"], answer: 0 },
+                    { q: "Acute gastroenteritis is primarily transmitted via the fecal-oral route.", options: ["True", "False"], answer: 0 },
+                    { q: "Infants have higher extracellular fluid and metabolic turnover, making them vulnerable to rapid dehydration.", options: ["True", "False"], answer: 0 },
+                    { q: "Cola and apple juice are ideal first-line oral rehydration solutions.", options: ["True", "False"], answer: 1 },
+                    { q: "A sunken anterior fontanel is a classic sign of extracellular fluid deficit.", options: ["True", "False"], answer: 0 },
+                    { q: "Antibiotics are routinely prescribed for all pediatric acute gastroenteritis cases.", options: ["True", "False"], answer: 1 },
+                    { q: "Monitoring daily weight is the most accurate way to assess fluid balance.", options: ["True", "False"], answer: 0 },
+                    { q: "Tears are typically absent in infants with moderate to severe dehydration.", options: ["True", "False"], answer: 0 },
+                    { q: "Capillary refill time greater than 3 seconds indicates adequate peripheral perfusion.", options: ["True", "False"], answer: 1 },
+                    { q: "Breastfed infants with gastroenteritis should continue to breastfeed frequently.", options: ["True", "False"], answer: 0 },
+                    { q: "Vomiting combined with diarrhea accelerates fluid loss and dehydration risk.", options: ["True", "False"], answer: 0 }
+                ]
+            },
+            // Lecture 4: Infant Growth & Development
+            {
+                title: "Lecture 4: Infant Growth & Development",
+                questions: [
+                    { q: "At approximately what age does an infant typically double their birth weight?", options: ["3 months", "5 to 6 months", "9 months", "12 months"], answer: 1 },
+                    { q: "At what age does an infant typically triple their birth weight?", options: ["6 months", "9 months", "12 months (1 year)", "24 months"], answer: 2 },
+                    { q: "Which developmental milestone is expected at around 6 months of age?", options: ["Walking independently", "Sitting unsupported", "Pincer grasp", "Speaking two-word phrases"], answer: 1 },
+                    { q: "What psychosocial stage characterizes the first year of life according to Erikson?", options: ["Autonomy vs. Shame and Doubt", "Trust vs. Mistrust", "Initiative vs. Guilt", "Industry vs. Inferiority"], answer: 1 },
+                    { q: "At what age does the posterior fontanel normally close?", options: ["2 months", "6 to 8 weeks (2 months)", "12 to 18 months", "24 months"], answer: 1 },
+                    { q: "What is the term for the fear of strangers developing around 6-8 months?", options: ["Separation anxiety", "Stranger anxiety", "Object permanence distress", "Social phobia"], answer: 1 },
+                    { q: "Which motor skill is characteristic of an 8 to 10-month-old infant?", options: ["Crawling or pulling to stand", "Running", "Skipping", "Riding a tricycle"], answer: 0 },
+                    { q: "When does object permanence typically develop?", options: ["1 to 2 months", "4 to 6 months", "8 to 10 months", "18 to 24 months"], answer: 2 },
+                    { q: "What is the recommended age to introduce solid foods alongside milk?", options: ["2 months", "4 to 6 months", "9 months", "12 months"], answer: 1 },
+                    { q: "Which vitamin supplement is routinely recommended for exclusively breastfed infants?", options: ["Vitamin C", "Vitamin D", "Vitamin K at birth and Vitamin D daily", "Vitamin B12"], answer: 2 },
+                    { q: "Head circumference is routinely monitored in infants to assess brain growth.", options: ["True", "False"], answer: 0 },
+                    { q: "The anterior fontanel typically closes between 12 and 18 months of age.", options: ["True", "False"], answer: 0 },
+                    { q: "Infants lose about 10% of their birth weight in the first few days, which is normal.", options: ["True", "False"], answer: 0 },
+                    { q: "The pincer grasp usually appears around 9 to 10 months of age.", options: ["True", "False"], answer: 0 },
+                    { q: "Honey should be given to infants under 1 year of age to soothe sore throats.", options: ["True", "False"], answer: 1 },
+                    { q: "Separation anxiety usually peaks around 12 to 18 months of age.", options: ["True", "False"], answer: 0 },
+                    { q: "The first primary teeth typically erupt around 6 months of age.", options: ["True", "False"], answer: 0 },
+                    { q: "Gross motor development generally follows a cephalocaudal (head-to-toe) pattern.", options: ["True", "False"], answer: 0 },
+                    { q: "By 12 months, birth length typically increases by about 50%.", options: ["True", "False"], answer: 0 },
+                    { q: "Cooing and babbling are early speech precursors occurring in the first months.", options: ["True", "False"], answer: 0 }
+                ]
+            },
+            // Lecture 5: Newborn Growth & Assessment
+            {
+                title: "Lecture 5: Newborn Growth & Assessment",
+                questions: [
+                    { q: "What is the average length of a normal full-term newborn?", options: ["40 cm", "50 cm", "60 cm", "45 cm"], answer: 1 },
+                    { q: "When is the Apgar score evaluated in a newborn?", options: ["1st and 5th minutes after birth", "Only at birth", "Every 15 minutes for an hour", "1st and 10th hours"], answer: 0 },
+                    { q: "What does an Apgar score of 7 to 10 indicate?", options: ["Severely depressed infant", "Moderately depressed infant", "Infant in good condition requiring routine care", "Immediate resuscitation required"], answer: 2 },
+                    { q: "Which vascular skin finding appears as blue-black colorations on the lower back and buttocks?", options: ["Milia", "Mongolian spots", "Capillary hemangioma", "Vernix caseosa"], answer: 1 },
+                    { q: "What is the normal heart rate range for a resting newborn?", options: ["60-100 b/m", "80-110 b/m", "120-160 b/m", "140-180 b/m"], answer: 2 },
+                    { q: "When does the anterior fontanel normally close completely?", options: ["2 to 6 weeks", "3 to 6 months", "12 to 18 months", "24 to 36 months"], answer: 2 },
+                    { q: "Which condition involves blood collection between the skull bone and periosteum that does NOT cross suture lines?", options: ["Caput succedaneum", "Cephalo-hematoma", "Hydrocephalus", "Craniosynostosis"], answer: 1 },
+                    { q: "What is the purpose of administering Erythromycin eye ointment to a newborn shortly after birth?", options: ["Prevent ophthalmia neonatorum (gonorrhea/chlamydia)", "Prevent viral conjunctivitis", "Improve vision focus", "Treat lacrimal duct obstruction"], answer: 0 },
+                    { q: "Which reflex is elicited by stroking the infant's cheek, causing them to turn toward the stimulus?", options: ["Moro reflex", "Rooting reflex", "Babinski reflex", "Stepping reflex"], answer: 1 },
+                    { q: "What is the recommended dose and route for Vitamin K administration at birth?", options: ["0.5 mg oral", "1 mg IM in vastus lateralis", "2 mg IV", "0.1 mg subcutaneous"], answer: 1 },
+                    { q: "Newborns normally lose about 5% to 10% of their birth weight in the first few days of life.", options: ["True", "False"], answer: 0 },
+                    { q: "The posterior fontanel normally closes between 12 and 18 months of age.", options: ["True", "False"], answer: 1 },
+                    { q: "Caput succedaneum is edema of the scalp caused by labor pressure and crosses suture lines.", options: ["True", "False"], answer: 0 },
+                    { q: "Vernix caseosa is a cheese-like yellowish-white substance that increases skin immunity.", options: ["True", "False"], answer: 0 },
+                    { q: "The umbilical cord normally contains two umbilical veins and one umbilical artery.", options: ["True", "False"], answer: 1 },
+                    { q: "Babinski reflex is elicited by stroking the sole of the foot in an inverted 'J' curve, causing fanning of the toes.", options: ["True", "False"], answer: 0 },
+                    { q: "Tears are abundantly produced by the newborn immediately during crying from birth.", options: ["True", "False"], answer: 1 },
+                    { q: "Moro reflex is initiated by jarring the surface or allowing the infant's head to drop slightly backward.", options: ["True", "False"], answer: 0 },
+                    { q: "Exclusively breastfed infants require a routine daily supplement of Vitamin D.", options: ["True", "False"], answer: 0 },
+                    { q: "The newborn chest circumference is normally greater than the head circumference.", options: ["True", "False"], answer: 1 }
+                ]
+            },
+            // Lecture 6: General Growth & Development Principles
+            {
+                title: "Lecture 6: General Growth & Development Principles",
+                questions: [
+                    { q: "How is physical growth defined?", options: ["Qualitative change in skill and function", "Quantitative increase in body size measurable in kilograms or meters", "Psychological maturity over time", "Emotional stability progression"], answer: 1 },
+                    { q: "What pattern of growth describes development proceeding from the head downward to the toes?", options: ["Proximodistal pattern", "Cephalocaudal pattern", "Simple to complex", "General to specific"], answer: 1 },
+                    { q: "Which developmental pattern describes growth starting from the center of the body outward to the periphery?", options: ["Cephalocaudal pattern", "Proximodistal pattern", "Sequential pattern", "Cephalodistal pattern"], answer: 1 },
+                    { q: "According to Freud, which psychosexual stage corresponds to the infant period?", options: ["Anal stage", "Oral stage", "Phallic stage", "Latency stage"], answer: 1 },
+                    { q: "Which psychosocial stage represents Erikson's crisis for the school-age child (6-12 years)?", options: ["Trust vs. Mistrust", "Autonomy vs. Shame and Doubt", "Industry vs. Inferiority", "Identity vs. Role Confusion"], answer: 2 },
+                    { q: "According to Piaget, during which age span does the 'sensorimotor' stage occur?", options: ["0 to 2 years", "2 to 7 years", "7 to 11 years", "12 to 18 years"], answer: 0 },
+                    { q: "Which hormone is a primary driver of early physical linear growth alongside thyroid hormone?", options: ["Insulin", "Growth Hormone (GH)", "Cortisol", "Adrenaline"], answer: 1 },
+                    { q: "What type of change represents 'development' rather than pure physical growth?", options: ["Increasing body weight in kilograms", "Increasing height in centimeters", "Progressive increase in skill, capacity, and cognitive function", "Enlarging head circumference"], answer: 2 },
+                    { q: "Which factor is categorized as a prenatal environmental influence on growth?", options: ["Socioeconomic status", "Maternal nutrition and infections", "Postnatal school environment", "Peer group pressure"], answer: 1 },
+                    { q: "What is a primary purpose for nurses to understand growth and development principles?", options: ["To diagnose genetic disorders independently", "To formulate appropriate, age-specific nursing plans of care", "To prescribe hormone replacement therapies", "To replace pediatricians in clinical settings"], answer: 1 },
+                    { q: "Development is a qualitative change that is easier to observe than to measure precisely.", options: ["True", "False"], answer: 0 },
+                    { q: "Growth and development proceed at an identical and uniform speed throughout childhood.", options: ["True", "False"], answer: 1 },
+                    { q: "The cephalocaudal pattern means a child can control their arms and hands before their neck and head.", options: ["True", "False"], answer: 1 },
+                    { q: "Each child grows and develops in a unique, individual pattern and rate.", options: ["True", "False"], answer: 0 },
+                    { q: "Chronic illness can have a profound and irreversible effect on a child's growth.", options: ["True", "False"], answer: 0 },
+                    { q: "Erikson's psychosocial crisis for toddlers (1-3 years) is Trust versus Mistrust.", options: ["True", "False"], answer: 1 },
+                    { q: "Piaget's preoperational stage covers children from approximately 2 to 7 years of age.", options: ["True", "False"], answer: 0 },
+                    { q: "Short-term illnesses cause temporary growth slowing followed by a rapid catch-up phase.", options: ["True", "False"], answer: 0 },
+                    { q: "Genetics plays a major role in determining transmitted traits and overall physical potential.", options: ["True", "False"], answer: 0 },
+                    { q: "Developmental milestones do not need to be mastered sequentially.", options: ["True", "False"], answer: 1 }
+                ]
+            },
+            // Lecture 7: Toddler Growth & Development
+            {
+                title: "Lecture 7: Toddler Growth & Development",
+                questions: [
+                    { q: "What age range defines the toddler period?", options: ["Birth to 1 year", "1 to 3 years", "3 to 6 years", "6 to 12 years"], answer: 1 },
+                    { q: "What is the formula used to calculate expected weight in toddlers?", options: ["Age in years x 2 + 8", "Age in years x 5 + 80", "Age in months + 9", "Weight x 2"], answer: 0 },
+                    { q: "What psychosocial crisis characterizes the toddler stage according to Erikson?", options: ["Trust vs. Mistrust", "Autonomy vs. Shame and Doubt", "Initiative vs. Guilt", "Industry vs. Inferiority"], answer: 1 },
+                    { q: "According to Freud, which psychosexual stage corresponds to the toddler years?", options: ["Oral stage", "Anal stage", "Phallic stage", "Latency stage"], answer: 1 },
+                    { q: "What type of play is typical of toddlers where they play alongside, but not directly with, other children?", options: ["Cooperative play", "Parallel play", "Competitive play", "Solitary play"], answer: 1 },
+                    { q: "By what age are all 20 primary (deciduous) teeth typically present?", options: ["1 year", "1.5 years", "2.5 to 3 years", "5 years"], answer: 2 },
+                    { q: "What vocabulary size is typically expected in a toddler by 3 years of age?", options: ["50 words", "300 words", "900 words", "2000 words"], answer: 2 },
+                    { q: "Which personality trait involves a toddler's insistence on sameness, routine, and ritualistic behaviors?", options: ["Negativism", "Ritualistic behavior", "Regressive behavior", "Placidity"], answer: 1 },
+                    { q: "What is the primary cause of mortality and major risk in the toddler age group?", options: ["Congenital heart defects", "Accidents and injuries", "Infectious diseases", "Genetic disorders"], answer: 1 },
+                    { q: "What is the expected daily caloric requirement for a normal toddler?", options: ["500 calories", "900 calories", "1300 calories", "2500 calories"], answer: 2 },
+                    { q: "Toddlers often display a protruded abdomen due to underdeveloped abdominal muscles.", options: ["True", "False"], answer: 0 },
+                    { q: "Bladder control during the night is typically achieved before daytime control.", options: ["True", "False"], answer: 1 },
+                    { q: "Temper tantrums are a common response to frustration as toddlers express their growing autonomy.", options: ["True", "False"], answer: 0 },
+                    { q: "Toddlers are better at producing complex sentences than understanding spoken language.", options: ["True", "False"], answer: 1 },
+                    { q: "Total sleep requirement for toddlers averages 12 to 14 hours per day including naps.", options: ["True", "False"], answer: 0 },
+                    { q: "Bowlegs are abnormal in toddlers and require immediate surgical intervention.", options: ["True", "False"], answer: 1 },
+                    { q: "Punishment and extra attention should be heavily given during a temper tantrum.", options: ["True", "False"], answer: 1 },
+                    { q: "Fat should constitute no more than 30% of a toddler's total daily caloric intake.", options: ["True", "False"], answer: 0 },
+                    { q: "Head circumference growth slows significantly during the second year, increasing only about 2 cm.", options: ["True", "False"], answer: 0 },
+                    { q: "Children during the toddler stage grow in a smooth, perfectly linear fashion.", options: ["True", "False"], answer: 1 }
+                ]
+            },
+            // Lecture 8: Immunization & Vaccines
+            {
+                title: "Lecture 8: Pediatric Immunization & Vaccines",
+                questions: [
+                    { q: "What type of immunity is acquired when a fetus receives maternal antibodies across the placenta?", options: ["Natural active immunity", "Natural passive immunity", "Artificial active immunity", "Artificial passive immunity"], answer: 1 },
+                    { q: "Which vaccine is classified as a live attenuated vaccine?", options: ["Hepatitis B", "BCG vaccine", "DPT vaccine", "Salk polio vaccine"], answer: 1 },
+                    { q: "At what age is the BCG vaccine typically scheduled in Egypt?", options: ["At birth", "2 months", "6 months", "12 months"], answer: 0 },
+                    { q: "What route is used to administer the MMR vaccine?", options: ["Oral drops", "Intradermal", "Subcutaneous injection", "Intramuscular injection"], answer: 2 },
+                    { q: "Which vaccine component is strictly contraindicated if a child experienced previous seizures or high fever?", options: ["OPV", "DPT", "BCG", "MMR"], answer: 1 },
+                    { q: "What is the recommended storage temperature range for vaccine refrigerators?", options: ["-15°C", "2°C to 8°C", "10°C to 15°C", "Room temperature"], answer: 1 },
+                    { q: "Which vaccine must NOT be frozen because freezing destroys its potency?", options: ["OPV", "DPT", "Measles", "BCG"], answer: 1 },
+                    { q: "What muscle is recommended for intramuscular vaccine injections in infants?", options: ["Deltoid muscle", "Gluteus maximus", "Vastus lateralis muscle", "Triceps muscle"], answer: 2 },
+                    { q: "What type of immunity is established by introducing live attenuated or inactivated microorganisms?", options: ["Natural passive immunity", "Artificial active immunity", "Artificial passive immunity", "Natural innate immunity"], answer: 1 },
+                    { q: "What is a standard nursing responsibility before administering any vaccine?", options: ["Prescribe antibiotics", "Obtain allergy history and assess for acute severe illness contraindications", "Perform routine blood cultures", "Isolate the child for 2 weeks"], answer: 1 },
+                    { q: "Natural active immunity occurs when the body's immune system produces antibodies after disease exposure.", options: ["True", "False"], answer: 0 },
+                    { q: "Killed or inactivated vaccines include BCG and oral polio (Sabin) vaccines.", options: ["True", "False"], answer: 1 },
+                    { q: "DPT vaccine should be given even if the child has a high fever and progressive neurological abnormality.", options: ["True", "False"], answer: 1 },
+                    { q: "Food and drinking water should be stored in the vaccine refrigerator to save space.", options: ["True", "False"], answer: 1 },
+                    { q: "Mild fever, malaise, and swelling at the injection site are common normal side effects of immunization.", options: ["True", "False"], answer: 0 },
+                    { q: "Immunization is the process of inducing artificial immunity through vaccination or antibody administration.", options: ["True", "False"], answer: 0 },
+                    { q: "If a child has a severe seizure reaction following DPT, future doses should switch to DT only.", options: ["True", "False"], answer: 0 },
+                    { q: "Vaccines can safely be dissolved using warm diluents to speed up preparation.", options: ["True", "False"], answer: 1 },
+                    { q: "OPV is administered as oral drops according to the Egyptian vaccination schedule.", options: ["True", "False"], answer: 0 },
+                    { q: "BCG is safely administered to severely immunocompromised children without risk.", options: ["True", "False"], answer: 1 }
+                ]
+            },
+            // Lecture 9: Preschool Child Growth & Development
+            {
+                title: "Lecture 9: Preschool Child Growth & Development",
+                questions: [
+                    { q: "What age range defines the preschool stage?", options: ["1 to 3 years", "End of 3rd year to end of 5th year", "6 to 12 years", "13 to 18 years"], answer: 1 },
+                    { q: "What is the average weight gain per year during the preschool period?", options: ["1.0 kg/year", "2.3 kg/year", "5.0 kg/year", "0.5 kg/year"], answer: 1 },
+                    { q: "According to Erikson, what psychosocial crisis characterizes the preschool period?", options: ["Trust vs. Mistrust", "Autonomy vs. Shame and Doubt", "Initiative vs. Guilt", "Industry vs. Inferiority"], answer: 2 },
+                    { q: "According to Freud, which psychosexual stage corresponds to the preschool years (3-7 years)?", options: ["Oral stage", "Anal stage", "Phallic stage", "Latency stage"], answer: 2 },
+                    { q: "What is the expected average sleep duration for a preschool child per day?", options: ["8-9 hours", "11-13 hours", "15-16 hours", "6-7 hours"], answer: 1 },
+                    { q: "Which developmental milestone is typically achieved at 5 years of age?", options: ["Can only copy a circle", "Draws a recognizable picture of a man and dresses without assistance", "Cannot use scissors", "Cannot feed independently"], answer: 1 },
+                    { q: "What type of cognitive thinking characterizes Piaget's preoperational stage in preschoolers (2-7 years)?", options: ["Formal abstract logic", "Egocentric thinking and use of language/memory", "Concrete operational conservation", "Reflexive sensorimotor actions"], answer: 1 },
+                    { q: "Which problem is commonly reported during the sleep of preschool children?", options: ["Sleep apnea exclusively", "Nightmares and frightening dreams", "Complete insomnia", "Permanent sleep reversal"], answer: 1 },
+                    { q: "At what age do children generally have all 20 of their deciduous teeth fully erupted?", options: ["1 year", "2.5 to 3 years", "6 years", "10 years"], answer: 1 },
+                    { q: "What is the Oedipal conflict experienced during Freud's phallic stage?", options: ["Hatred of both parents", "Jealousy toward the same-sex parent and affection for the opposite-sex parent", "Complete detachment from family", "Fear of strangers"], answer: 1 },
+                    { q: "Physical growth rate slows and stabilizes during the preschool years compared to infancy.", options: ["True", "False"], answer: 0 },
+                    { q: "Head circumference is routinely measured at every routine visit for children over 2 years old.", options: ["True", "False"], answer: 1 },
+                    { q: "Development of a sense of initiative occurs when adult guidance encourages the child's plans appropriately.", options: ["True", "False"], answer: 0 },
+                    { q: "Preschoolers are less interested in eating than during infancy because of intense environmental exploration.", options: ["True", "False"], answer: 0 },
+                    { q: "Dental caries in deciduous teeth rarely occur between ages 3 and 6 years.", options: ["True", "False"], answer: 1 },
+                    { q: "The 4-year-old child is often described as going through a stormy, noisy, and emotionally fluctuating age.", options: ["True", "False"], answer: 0 },
+                    { q: "Preschool children frequently experience fears of the dark and active imaginations.", options: ["True", "False"], answer: 0 },
+                    { q: "By age 5, height averages about 110 cm, which is double the birth length.", options: ["True", "False"], answer: 0 },
+                    { q: "Enuresis, thumb sucking, and bed-wetting are never seen as common problems in preschoolers.", options: ["True", "False"], answer: 1 },
+                    { q: "Health supervision visits for preschoolers are recommended every 6 months to a year.", options: ["True", "False"], answer: 0 }
+                ]
+            },
+            // Lecture 10: School-Age Child Growth & Development
+            {
+                title: "Lecture 10: School-Age Child Growth & Development",
+                questions: [
+                    { q: "What age range is typically covered in the school-age period?", options: ["1 to 3 years", "3 to 6 years", "6 to 12 years", "13 to 18 years"], answer: 2 },
+                    { q: "According to Erikson, what is the core psychosocial task of the school-age child[cite: 44, 48]?", options: ["Trust vs. Mistrust", "Autonomy vs. Shame and Doubt", "Initiative vs. Guilt", "Industry vs. Inferiority[cite: 44, 48]"], answer: 3 },
+                    { q: "According to Piaget, which cognitive operational stage develops during middle childhood[cite: 44]?", options: ["Sensorimotor thought", "Preoperational thought", "Concrete operational thinking[cite: 44]", "Formal operational thought"], answer: 2 },
+                    { q: "What type of play is most characteristic and common during the school-age period?", options: ["Solitary play", "Parallel play", "Cooperative play in groups[cite: 64]", "Sensory play"], answer: 2 },
+                    { q: "Which screening is critical during school-age health supervision?", options: ["Vision, hearing, and scoliosis screening", "Only neonatal reflex testing", "Only fontanel closure check", "Only Apgar scoring"], answer: 0 },
+                    { q: "What is the recommended fluid of choice to replace sugar-sweetened beverages for school-age children[cite: 44]?", options: ["Energy drinks", "Water[cite: 44]", "Flavored sodas", "Sweetened iced tea"], answer: 1 },
+                    { q: "Which dental injury prevention gear is strongly recommended for school-age children in contact sports[cite: 44]?", options: ["Knee braces", "Mouthguards[cite: 44]", "Elbow pads", "Wrist guards"], answer: 1 },
+                    { q: "How should a nurse best communicate with a school-age child[cite: 44]?", options: ["Ignore the child and speak only to parents", "Use clear, concrete explanations and involve them in their care[cite: 44]", "Use extremely complex medical terminology", "Treat them like infants"], answer: 1 },
+                    { q: "What is a common presentation of school refusal or stress in school-age children[cite: 44]?", options: ["Recurrent abdominal pain or somatic complaints[cite: 44]", "Rapid skeletal gigantism", "Sudden loss of all permanent teeth", "Instant puberty"], answer: 0 },
+                    { q: "What safety equipment is mandatory for preventing head trauma during bicycling or skating[cite: 44]?", options: ["Gloves", "Properly fitted helmet[cite: 44]", "Reflective belt only", "Leather boots"], answer: 1 },
+                    { q: "School age is characterized by steady physical growth and major gains in cognitive ability and peer relationships[cite: 44].", options: ["True", "False"], answer: 0 },
+                    { q: "Permanent teeth begin to erupt during the school-age years, making oral hygiene essential[cite: 44].", options: ["True", "False"], answer: 0 },
+                    { q: "Peer acceptance decreases in importance during middle childhood while parents become the sole focus[cite: 44].", options: ["True", "False"], answer: 1 },
+                    { q: "Concrete operational thinkers understand concepts like conservation, classification, and cause-and-effect[cite: 44].", options: ["True", "False"], answer: 0 },
+                    { q: "Stigmatizing children with labels based on their weight or body size is an effective long-term nursing strategy[cite: 44].", options: ["True", "False"], answer: 1 },
+                    { q: "Sleep duration and quality directly impact school performance, behavior, and attention in children[cite: 44].", options: ["True", "False"], answer: 0 },
+                    { q: "Learning difficulties can sometimes stem from uncorrected vision or hearing impairments[cite: 44].", options: ["True", "False"], answer: 0 },
+                    { q: "Forced reassurance alone is completely sufficient for managing severe school refusal[cite: 44].", options: ["True", "False"], answer: 1 },
+                    { q: "Nurses should speak to the child as an active participant and protect their privacy during examinations[cite: 44].", options: ["True", "False"], answer: 0 },
+                    { q: "Swimming competence completely eliminates the risk of drowning in school-age children[cite: 44].", options: ["True", "False"], answer: 1 }
+                ]
+            },
+            // Lecture 11: Nutritional Disorders (Marasmus & Kwashiorkor)
+            {
+                title: "Lecture 11: Nutritional Disorders (Marasmus & Kwashiorkor)",
+                questions: [
+                    { q: "What is Marasmus primarily defined as?", options: ["Acute protein deficiency with adequate calories", "Chronic undernutrition caused by deficiency of all food groups (calories and protein)[cite: 47]", "Excessive vitamin D intake", "Iron deficiency anemia"], answer: 1 },
+                    { q: "At what age does Marasmus most commonly occur?", options: ["Children under age one year[cite: 47]", "Ages 5 to 10 years", "Adolescence", "Elderly adults"], answer: 0 },
+                    { q: "What is Kwashiorkor primarily caused by?", options: ["Complete starvation of all nutrients", "Severe protein deficiency with adequate carbohydrate caloric intake[cite: 50]", "Excess calcium", "Vitamin C toxicity"], answer: 1 },
+                    { q: "At what age does Kwashiorkor typically occur?", options: ["Under 3 months", "Children between ages one to three years (post-weaning)[cite: 51]", "Only in newborns", "During school age"], answer: 1 },
+                    { q: "Which clinical feature is characteristic of Kwashiorkor but ABSENT in Marasmus[cite: 55]?", options: ["Severe muscle wasting", "Generalized pitting edema (moon face)[cite: 51, 55]", "Senile old-man face", "Extreme hunger"], answer: 1 },
+                    { q: "What type of facial appearance is classically seen in a child with Marasmus[cite: 49, 55]?", options: ["Moon face", "Senile or 'old man' face[cite: 49, 55]", "Asymmetric facial paralysis", "Puffiness around eyes only"], answer: 1 },
+                    { q: "Which vitamin and mineral supplement is routinely given to correct anemia in Kwashiorkor?", options: ["Vitamin K only", "Iron and folic acid[cite: 53]", "Vitamin B12 nasal spray", "High-dose Vitamin D"], answer: 1 },
+                    { q: "What causes hypothermia in a child with Marasmus[cite: 49]?", options: ["Excessive sweating", "Loss of subcutaneous fat leading to increased heat loss[cite: 49]", "Fever from infections", "High environmental temperature"], answer: 1 },
+                    { q: "What hair change is typically observed in Kwashiorkor[cite: 52, 55]?", options: ["Hair becomes thick and curly", "Hair loses luster, is easily pluckable, and changes color (red/yellow/brown)[cite: 52, 55]", "Premature male pattern baldness", "No change in hair"], answer: 1 },
+                    { q: "Which nursing diagnosis is critical for a child with Marasmus or Kwashiorkor experiencing severe diarrhea[cite: 54]?", options: ["Fluid volume excess", "Fluid volume deficit related to diarrhea[cite: 54]", "Risk for hypervolemia", "Unchanged fluid status"], answer: 1 },
+                    { q: "Marasmus is characterized by severe muscle wasting and very little subcutaneous fat[cite: 47, 55].", options: ["True", "False"], answer: 0 },
+                    { q: "Edema is a constant clinical feature present in Marasmus cases[cite: 55].", options: ["True", "False"], answer: 1 },
+                    { q: "Kwashiorkor edema starts as pitting, painless edema on the dorsum of hands and feet[cite: 51].", options: ["True", "False"], answer: 0 },
+                    { q: "Diluted formula in artificial feeding and delayed weaning are major dietetic errors causing Marasmus[cite: 47].", options: ["True", "False"], answer: 0 },
+                    { q: "Fatty liver is a very common finding in Kwashiorkor compared to Marasmus[cite: 55].", options: ["True", "False"], answer: 0 },
+                    { q: "Constipation due to decreased food intake is a common GIT manifestation in Marasmus[cite: 49].", options: ["True", "False"], answer: 0 },
+                    { q: "In Kwashiorkor, weight loss is often masked by body edema[cite: 51].", options: ["True", "False"], answer: 0 },
+                    { q: "Skin changes in Kwashiorkor include erythema, hyperpigmentation, desquamation, and cracking[cite: 52, 55].", options: ["True", "False"], answer: 0 },
+                    { q: "Feeding a malnourished child should be done rapidly in huge single meals without small frequent amounts.", options: ["True", "False"], answer: 1 },
+                    { q: "Preventing malnutrition includes encouraging breastfeeding, proper weaning education, and immunization[cite: 49, 53].", options: ["True", "False"], answer: 0 }
+                ]
+            },
+            // Lecture 12: Overview of Pediatric Nursing & Play
+            {
+                title: "Lecture 12: Overview of Pediatric Nursing & Play",
+                questions: [
+                    { q: "How is pediatrics defined?", options: ["Branch of medical science dealing with the care of children from conception to adolescence in health and illness[cite: 56]", "Branch of surgery dealing only with adults", "Study of geriatric diseases", "Pharmacology of adult medications"], answer: 0 },
+                    { q: "What is considered 'the work of children' according to pediatric nursing principles?", options: ["Household chores", "Play[cite: 61]", "Formal schooling only", "Hospital paperwork"], answer: 1 },
+                    { q: "Which type of play is characteristic of infants, where each infant plays independently with their own body[cite: 63]?", options: ["Parallel play", "Solitary play[cite: 63]", "Cooperative play", "Competitive play"], answer: 1 },
+                    { q: "Which type of play is typical of toddlers who play alongside each other rather than together[cite: 63]?", options: ["Solitary play", "Parallel play[cite: 63]", "Dramatic play", "Team sports"], answer: 1 },
+                    { q: "What type of play is common during the preschool years where children imitate parents and social roles[cite: 64]?", options: ["Cooperative play", "Dramatic / Associative play[cite: 64]", "Day dreaming", "Abstract chess"], answer: 1 },
+                    { q: "What type of play characterizes school-age children who like to play in groups and share games[cite: 64]?", options: ["Solitary play", "Parallel play", "Cooperative play[cite: 64]", "Infant sensorimotor play"], answer: 2 },
+                    { q: "What is a primary therapeutic value of play during a child's hospitalization[cite: 65]?", options: ["To tire the child out so they sleep all day", "To provide release from tension and stress, and express feelings[cite: 62, 65]", "To replace nursing staff responsibilities", "To test new pharmaceutical drugs"], answer: 1 },
+                    { q: "Which role of the pediatric nurse involves acting as a bridge to ensure holistic care with other health team members[cite: 59]?", options: ["Coordinator and collaborator[cite: 59]", "Isolated practitioner", "Hospital administrator only", "Patient relative"], answer: 0 },
+                    { q: "What is a key quality of a good pediatric nurse[cite: 57]?", options: ["Impatience and harshness", "Good observer, honest, sympathetic, patient, and cheerful[cite: 57]", "Indifference to family needs", "Strict avoidance of children"], answer: 1 },
+                    { q: "What does tertiary level pediatric nursing care focus on[cite: 57, 58]?", options: ["Primary routine immunizations", "Health education in schools", "Dealing with child's disabilities and assisting return to maximal functioning[cite: 57, 58]", "Prenatal counseling"], answer: 2 },
+                    { q: "Pediatric nursing encompasses preventive, promotive, curative, and rehabilitative care of children[cite: 56].", options: ["True", "False"], answer: 0 },
+                    { q: "Play aids in developing fine and gross motor skills, cognitive abilities, and socialization[cite: 61, 62].", options: ["True", "False"], answer: 0 },
+                    { q: "Competitive play and day dreaming are most typical of infancy rather than adolescence[cite: 64].", options: ["True", "False"], answer: 1 },
+                    { q: "Playing in the hospital helps children understand procedures and accept treatment[cite: 65].", options: ["True", "False"], answer: 0 },
+                    { q: "The pediatric nurse acts as a child and family advocate to assist in informed decision-making[cite: 59].", options: ["True", "False"], answer: 0 },
+                    { q: "Good playthings for children should feature complicated dangerous designs and sharp edges.", options: ["True", "False"], answer: 1 },
+                    { q: "Secondary level pediatric nursing care involves providing direct care to sick children in healthcare facilities[cite: 57, 58].", options: ["True", "False"], answer: 0 },
+                    { q: "Role-playing helps anxious children cope with emotional conflict and deepens self-awareness[cite: 61].", options: ["True", "False"], answer: 0 },
+                    { q: "The researcher role is irrelevant and excluded from professional pediatric nursing practice[cite: 59].", options: ["True", "False"], answer: 1 },
+                    { q: "Children learn boundaries, teamwork, patience, and how to negotiate through play[cite: 62].", options: ["True", "False"], answer: 0 }
+                ]
+            }
+        ];
+
+        let currentLectureIndex = 0;
+
+        function startQuiz(index) {
+            currentLectureIndex = index;
+            const lecture = lecturesData[index];
+            
+            document.getElementById('quiz-title').innerText = lecture.title;
+            
+            const formContainer = document.getElementById('quiz-form');
+            formContainer.innerHTML = '';
+
+            lecture.questions.forEach((item, qIndex) => {
+                let optionsHtml = '';
+                item.options.forEach((opt, optIndex) => {
+                    optionsHtml += `
+                        <label class="flex items-center space-x-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer transition">
+                            <input type="radio" name="q${qIndex}" value="${optIndex}" class="text-indigo-600 focus:ring-indigo-500 h-4 w-4">
+                            <span class="text-gray-700">${opt}</span>
+                        </label>
+                    `;
+                });
+
+                formContainer.innerHTML += `
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <p class="font-semibold text-gray-800 mb-3">${qIndex + 1}. ${item.q}</p>
+                        <div class="space-y-2">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+            document.getElementById('result-view').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function submitQuiz() {
+            const lecture = lecturesData[currentLectureIndex];
+            let score = 0;
+
+            lecture.questions.forEach((item, qIndex) => {
+                const selected = document.querySelector(`input[name="q${qIndex}"]:checked`);
+                if (selected && parseInt(selected.value) === item.answer) {
+                    score++;
+                }
+            });
+
+            document.getElementById('score-display').innerText = `${score} / ${lecture.questions.length}`;
+            
+            let message = "";
+            const percentage = (score / lecture.questions.length) * 100;
+            if (percentage >= 90) message = "Excellent! Outstanding mastery of pediatric nursing! 🌟";
+            else if (percentage >= 75) message = "Very Good! You have a solid grasp of the concepts. 👍";
+            else if (percentage >= 50) message = "Good effort! Review the lecture notes to strengthen your weak spots. 📚";
+            else message = "Keep studying! Review the material carefully and try again. 💪";
+
+            document.getElementById('result-message').innerText = message;
+
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('result-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goHome() {
+            document.getElementById('home-view').classList.remove('hidden');
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('result-view').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
