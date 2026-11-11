@@ -21,7 +21,18 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen text-gray-800">
-
+<!-- Password Protection Script -->
+<script>
+    // حدد هنا كلمة المرور اللي انت عايزه ارفعها لأصحابك
+    const correctPassword = "123"; 
+    
+    let userPassword = prompt("الرجاء إدخال كلمة المرور لدخول الموقع:");
+    
+    if (userPassword !== correctPassword) {
+        document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; font-family:sans-serif; color:red;'>عذراً، كلمة المرور غير صحيحة. لا يمكنك الوصول للموقع! ❌</h2>";
+        throw new Error("Unauthorized access");
+    }
+</script>
     <!-- Container -->
     <div class="container mx-auto px-4 py-8 max-w-4xl">
         
